@@ -66,7 +66,7 @@ body {
 
 /* Projects Section */
 .projects {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px 80px;
 }
@@ -89,11 +89,13 @@ body {
 .image-container {
   position: relative;
   width: 100%;
+  max-width: 1280px;
   height: 0;
   padding-bottom: 62.5%; /* 16:10 aspect ratio (10/16 = 0.625) */
   background-color: #e0e0e0;
   border-radius: 16px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .project-media {
@@ -221,7 +223,7 @@ body {
   }
   
   .projects {
-    max-width: 1200px;
+    max-width: 1400px;
     padding: 0 30px 80px;
   }
 }
