@@ -105,10 +105,17 @@ The current color scheme uses:
 - **Titles**: Instrument Serif (italic)
 - **Body**: Inter (various weights)
 
-## Keyboard Navigation
+## Navigation
 
+### Keyboard Navigation
 - **Left Arrow**: Previous image in current project
 - **Right Arrow**: Next image in current project
+
+### Drag/Swipe Navigation
+- **Mouse**: Click and drag left/right on any project image
+- **Touch**: Swipe left/right on any project image
+- **Threshold**: Minimum 50px drag distance required to trigger slide
+- **Direction**: Horizontal drag takes priority over vertical drag
 
 ## Contact
 
