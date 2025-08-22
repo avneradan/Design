@@ -5,91 +5,293 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Avner Adan</title>
   <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Custom cursor -->
-  <div class="custom-cursor-container" aria-hidden="true">
-    <div class="custom-cursor-large"></div>
-    <div class="custom-cursor"></div>
-  </div>
-
-  <!-- Content -->
-  <section class="hero">
-    Avner Adan is a resourceful<br>design director and educator
-  </section>
-
-  <section class="work">
-    <div class="work-card">
-      <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
-        <source src="media/Video-test.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
+  <!-- Header Section -->
+  <header class="header">
+    <h1 class="name">Avner Adan</h1>
+    <p class="title">Tech Designer & Educator</p>
+    <div class="contact-button" onclick="copyEmail()">
+      <span class="email">avner.adan@gmail.com</span>
+      <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
     </div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-    <div class="work-card"></div>
-  </section>
+  </header>
 
-  <section class="contact">lorem ipsum dolor amet sit</section>
-  <footer class="footer">Lorems</footer>
+  <!-- Projects Section -->
+  <main class="projects">
+    <!-- Project 1 -->
+    <section class="project" data-project="1">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(1)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-1-1.jpg" alt="Project 1 - Image 1" class="project-image active">
+          <img src="media/placeholder-1-2.jpg" alt="Project 1 - Image 2" class="project-image">
+          <img src="media/placeholder-1-3.jpg" alt="Project 1 - Image 3" class="project-image">
+          <img src="media/placeholder-1-4.jpg" alt="Project 1 - Image 4" class="project-image">
+          <img src="media/placeholder-1-5.jpg" alt="Project 1 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(1)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(1, 1)"></span>
+        <span class="dot" onclick="goToImage(1, 2)"></span>
+        <span class="dot" onclick="goToImage(1, 3)"></span>
+        <span class="dot" onclick="goToImage(1, 4)"></span>
+        <span class="dot" onclick="goToImage(1, 5)"></span>
+      </div>
+    </section>
 
-  <script>
-    // Custom cursor (hidden native cursor handled in CSS)
-    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const cursorContainer = document.querySelector('.custom-cursor-container');
-    const customCursor = document.querySelector('.custom-cursor');
-    const customCursorLarge = document.querySelector('.custom-cursor-large');
+    <!-- Project 2 -->
+    <section class="project" data-project="2">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(2)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-2-1.jpg" alt="Project 2 - Image 1" class="project-image active">
+          <img src="media/placeholder-2-2.jpg" alt="Project 2 - Image 2" class="project-image">
+          <img src="media/placeholder-2-3.jpg" alt="Project 2 - Image 3" class="project-image">
+          <img src="media/placeholder-2-4.jpg" alt="Project 2 - Image 4" class="project-image">
+          <img src="media/placeholder-2-5.jpg" alt="Project 2 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(2)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(2, 1)"></span>
+        <span class="dot" onclick="goToImage(2, 2)"></span>
+        <span class="dot" onclick="goToImage(2, 3)"></span>
+        <span class="dot" onclick="goToImage(2, 4)"></span>
+        <span class="dot" onclick="goToImage(2, 5)"></span>
+      </div>
+    </section>
 
-    if (isFinePointer && cursorContainer && customCursor && customCursorLarge) {
-      let mouseX = 0, mouseY = 0;
-      let cursorX = 0, cursorY = 0;
-      let cursorLargeX = 0, cursorLargeY = 0;
-      let firstMove = true;
+    <!-- Project 3 -->
+    <section class="project" data-project="3">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(3)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-3-1.jpg" alt="Project 3 - Image 1" class="project-image active">
+          <img src="media/placeholder-3-2.jpg" alt="Project 3 - Image 2" class="project-image">
+          <img src="media/placeholder-3-3.jpg" alt="Project 3 - Image 3" class="project-image">
+          <img src="media/placeholder-3-4.jpg" alt="Project 3 - Image 4" class="project-image">
+          <img src="media/placeholder-3-5.jpg" alt="Project 3 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(3)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(3, 1)"></span>
+        <span class="dot" onclick="goToImage(3, 2)"></span>
+        <span class="dot" onclick="goToImage(3, 3)"></span>
+        <span class="dot" onclick="goToImage(3, 4)"></span>
+        <span class="dot" onclick="goToImage(3, 5)"></span>
+      </div>
+    </section>
 
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (firstMove) {
-          firstMove = false;
-          cursorX = mouseX;
-          cursorY = mouseY;
-          cursorLargeX = mouseX;
-          cursorLargeY = mouseY;
-        }
-        // Ensure container is visible when moving inside window
-        cursorContainer.style.display = '';
-      });
+    <!-- Project 4 -->
+    <section class="project" data-project="4">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(4)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-4-1.jpg" alt="Project 4 - Image 1" class="project-image active">
+          <img src="media/placeholder-4-2.jpg" alt="Project 4 - Image 2" class="project-image">
+          <img src="media/placeholder-4-3.jpg" alt="Project 4 - Image 3" class="project-image">
+          <img src="media/placeholder-4-4.jpg" alt="Project 4 - Image 4" class="project-image">
+          <img src="media/placeholder-4-5.jpg" alt="Project 4 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(4)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(4, 1)"></span>
+        <span class="dot" onclick="goToImage(4, 2)"></span>
+        <span class="dot" onclick="goToImage(4, 3)"></span>
+        <span class="dot" onclick="goToImage(4, 4)"></span>
+        <span class="dot" onclick="goToImage(4, 5)"></span>
+      </div>
+    </section>
 
-      function animateCursor() {
-        const speed = 0.256; // your chosen smoothing
-        cursorX += (mouseX - cursorX) * speed;
-        cursorY += (mouseY - cursorY) * speed;
-        customCursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+    <!-- Project 5 -->
+    <section class="project" data-project="5">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(5)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-5-1.jpg" alt="Project 5 - Image 1" class="project-image active">
+          <img src="media/placeholder-5-2.jpg" alt="Project 5 - Image 2" class="project-image">
+          <img src="media/placeholder-5-3.jpg" alt="Project 5 - Image 3" class="project-image">
+          <img src="media/placeholder-5-4.jpg" alt="Project 5 - Image 4" class="project-image">
+          <img src="media/placeholder-5-5.jpg" alt="Project 5 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(5)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(5, 1)"></span>
+        <span class="dot" onclick="goToImage(5, 2)"></span>
+        <span class="dot" onclick="goToImage(5, 3)"></span>
+        <span class="dot" onclick="goToImage(5, 4)"></span>
+        <span class="dot" onclick="goToImage(5, 5)"></span>
+      </div>
+    </section>
 
-        const lag = speed * 0.6; // slight delay on the large circle
-        cursorLargeX += (mouseX - cursorLargeX) * lag;
-        cursorLargeY += (mouseY - cursorLargeY) * lag;
-        customCursorLarge.style.transform = `translate(${cursorLargeX - 20}px, ${cursorLargeY - 20}px)`;
+    <!-- Project 6 -->
+    <section class="project" data-project="6">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(6)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-6-1.jpg" alt="Project 6 - Image 1" class="project-image active">
+          <img src="media/placeholder-6-2.jpg" alt="Project 6 - Image 2" class="project-image">
+          <img src="media/placeholder-6-3.jpg" alt="Project 6 - Image 3" class="project-image">
+          <img src="media/placeholder-6-4.jpg" alt="Project 6 - Image 4" class="project-image">
+          <img src="media/placeholder-6-5.jpg" alt="Project 6 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(6)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(6, 1)"></span>
+        <span class="dot" onclick="goToImage(6, 2)"></span>
+        <span class="dot" onclick="goToImage(6, 3)"></span>
+        <span class="dot" onclick="goToImage(6, 4)"></span>
+        <span class="dot" onclick="goToImage(6, 5)"></span>
+      </div>
+    </section>
 
-        requestAnimationFrame(animateCursor);
-      }
-      animateCursor();
+    <!-- Project 7 -->
+    <section class="project" data-project="7">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(7)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-7-1.jpg" alt="Project 7 - Image 1" class="project-image active">
+          <img src="media/placeholder-7-2.jpg" alt="Project 7 - Image 2" class="project-image">
+          <img src="media/placeholder-7-3.jpg" alt="Project 7 - Image 3" class="project-image">
+          <img src="media/placeholder-7-4.jpg" alt="Project 7 - Image 4" class="project-image">
+          <img src="media/placeholder-7-5.jpg" alt="Project 7 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(7)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(7, 1)"></span>
+        <span class="dot" onclick="goToImage(7, 2)"></span>
+        <span class="dot" onclick="goToImage(7, 3)"></span>
+        <span class="dot" onclick="goToImage(7, 4)"></span>
+        <span class="dot" onclick="goToImage(7, 5)"></span>
+      </div>
+    </section>
 
-      // Hide custom cursor when the mouse leaves the window
-      document.addEventListener('mouseleave', () => {
-        cursorContainer.style.display = 'none';
-      });
-      document.addEventListener('mouseenter', () => {
-        cursorContainer.style.display = '';
-      });
-    }
-  </script>
+    <!-- Project 8 -->
+    <section class="project" data-project="8">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(8)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-8-1.jpg" alt="Project 8 - Image 1" class="project-image active">
+          <img src="media/placeholder-8-2.jpg" alt="Project 8 - Image 2" class="project-image">
+          <img src="media/placeholder-8-3.jpg" alt="Project 8 - Image 3" class="project-image">
+          <img src="media/placeholder-8-4.jpg" alt="Project 8 - Image 4" class="project-image">
+          <img src="media/placeholder-8-5.jpg" alt="Project 8 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(8)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(8, 1)"></span>
+        <span class="dot" onclick="goToImage(8, 2)"></span>
+        <span class="dot" onclick="goToImage(8, 3)"></span>
+        <span class="dot" onclick="goToImage(8, 4)"></span>
+        <span class="dot" onclick="goToImage(8, 5)"></span>
+      </div>
+    </section>
+
+    <!-- Project 9 -->
+    <section class="project" data-project="9">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(9)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-9-1.jpg" alt="Project 9 - Image 1" class="project-image active">
+          <img src="media/placeholder-9-2.jpg" alt="Project 9 - Image 2" class="project-image">
+          <img src="media/placeholder-9-3.jpg" alt="Project 9 - Image 3" class="project-image">
+          <img src="media/placeholder-9-4.jpg" alt="Project 9 - Image 4" class="project-image">
+          <img src="media/placeholder-9-5.jpg" alt="Project 9 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(9)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(9, 1)"></span>
+        <span class="dot" onclick="goToImage(9, 2)"></span>
+        <span class="dot" onclick="goToImage(9, 3)"></span>
+        <span class="dot" onclick="goToImage(9, 4)"></span>
+        <span class="dot" onclick="goToImage(9, 5)"></span>
+      </div>
+    </section>
+
+    <!-- Project 10 -->
+    <section class="project" data-project="10">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(10)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-10-1.jpg" alt="Project 10 - Image 1" class="project-image active">
+          <img src="media/placeholder-10-2.jpg" alt="Project 10 - Image 2" class="project-image">
+          <img src="media/placeholder-10-3.jpg" alt="Project 10 - Image 3" class="project-image">
+          <img src="media/placeholder-10-4.jpg" alt="Project 10 - Image 4" class="project-image">
+          <img src="media/placeholder-10-5.jpg" alt="Project 10 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(10)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(10, 1)"></span>
+        <span class="dot" onclick="goToImage(10, 2)"></span>
+        <span class="dot" onclick="goToImage(10, 3)"></span>
+        <span class="dot" onclick="goToImage(10, 4)"></span>
+        <span class="dot" onclick="goToImage(10, 5)"></span>
+      </div>
+    </section>
+
+    <!-- Project 11 -->
+    <section class="project" data-project="11">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(11)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-11-1.jpg" alt="Project 11 - Image 1" class="project-image active">
+          <img src="media/placeholder-11-2.jpg" alt="Project 11 - Image 2" class="project-image">
+          <img src="media/placeholder-11-3.jpg" alt="Project 11 - Image 3" class="project-image">
+          <img src="media/placeholder-11-4.jpg" alt="Project 11 - Image 4" class="project-image">
+          <img src="media/placeholder-11-5.jpg" alt="Project 11 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(11)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(11, 1)"></span>
+        <span class="dot" onclick="goToImage(11, 2)"></span>
+        <span class="dot" onclick="goToImage(11, 3)"></span>
+        <span class="dot" onclick="goToImage(11, 4)"></span>
+        <span class="dot" onclick="goToImage(11, 5)"></span>
+      </div>
+    </section>
+
+    <!-- Project 12 -->
+    <section class="project" data-project="12">
+      <div class="project-gallery">
+        <button class="nav-arrow prev" onclick="previousImage(12)">&lt;</button>
+        <div class="image-container">
+          <img src="media/placeholder-12-1.jpg" alt="Project 12 - Image 1" class="project-image active">
+          <img src="media/placeholder-12-2.jpg" alt="Project 12 - Image 2" class="project-image">
+          <img src="media/placeholder-12-3.jpg" alt="Project 12 - Image 3" class="project-image">
+          <img src="media/placeholder-12-4.jpg" alt="Project 12 - Image 4" class="project-image">
+          <img src="media/placeholder-12-5.jpg" alt="Project 12 - Image 5" class="project-image">
+        </div>
+        <button class="nav-arrow next" onclick="nextImage(12)">&gt;</button>
+      </div>
+      <div class="gallery-dots">
+        <span class="dot active" onclick="goToImage(12, 1)"></span>
+        <span class="dot" onclick="goToImage(12, 2)"></span>
+        <span class="dot" onclick="goToImage(12, 3)"></span>
+        <span class="dot" onclick="goToImage(12, 4)"></span>
+        <span class="dot" onclick="goToImage(12, 5)"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="gallery-manager.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
  
