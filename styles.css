@@ -66,7 +66,7 @@ body {
 
 /* Projects Section */
 .projects {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 80px;
 }
@@ -89,7 +89,7 @@ body {
 .image-container {
   position: relative;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1024px; /* 20% smaller than 1280px (1280 * 0.8 = 1024) */
   height: 0;
   padding-bottom: 62.5%; /* 16:10 aspect ratio (10/16 = 0.625) */
   background-color: #e0e0e0;
@@ -223,7 +223,7 @@ body {
   }
   
   .projects {
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 30px 80px;
   }
 }
