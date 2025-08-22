@@ -89,13 +89,14 @@ body {
 .image-container {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 0;
+  padding-bottom: 62.5%; /* 16:10 aspect ratio (10/16 = 0.625) */
   background-color: #e0e0e0;
   border-radius: 16px;
   overflow: hidden;
 }
 
-.project-image {
+.project-media {
   position: absolute;
   top: 0;
   left: 0;
@@ -106,8 +107,13 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.project-image.active {
+.project-media.active {
   opacity: 1;
+}
+
+/* Video specific styles */
+.project-media[src$=".mp4"] {
+  object-fit: cover;
 }
 
 .nav-arrow {
@@ -184,10 +190,6 @@ body {
     padding: 0 40px 120px;
   }
   
-  .image-container {
-    height: 500px;
-  }
-  
   .nav-arrow {
     width: 56px;
     height: 56px;
@@ -222,10 +224,6 @@ body {
     max-width: 1200px;
     padding: 0 30px 80px;
   }
-  
-  .image-container {
-    height: 400px;
-  }
 }
 
 /* 1280px */
@@ -248,10 +246,6 @@ body {
     padding: 0 24px 60px;
   }
   
-  .image-container {
-    height: 350px;
-  }
-  
   .nav-arrow {
     width: 44px;
     height: 44px;
@@ -263,7 +257,7 @@ body {
   }
   
   .nav-arrow.next {
-    right: -22px;
+    right: -28px;
   }
 }
 
@@ -299,7 +293,7 @@ body {
   }
   
   .image-container {
-    height: 250px;
+    padding-bottom: 75%; /* 4:3 aspect ratio for mobile (more suitable) */
   }
   
   .nav-arrow {

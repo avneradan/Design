@@ -37,25 +37,47 @@ A clean, responsive portfolio website built with HTML, CSS, and JavaScript.
 2. Remove the project from `projectStates` in `gallery-manager.js`
 3. Renumber remaining projects if needed
 
-## How to Add/Remove Images
+## How to Add/Remove Images and Videos
 
-### Adding More Images
+### Adding More Media
 
-1. Add new `<img>` elements to the project's `.image-container`
+1. Add new `<img>` or `<video>` elements to the project's `.image-container`
 2. Add corresponding dots to `.gallery-dots`
 3. Update the navigation logic in `gallery-manager.js` (change the `5` to your new total)
 
-### Removing Images
+### Removing Media
 
-1. Remove `<img>` elements from `.image-container`
+1. Remove `<img>` or `<video>` elements from `.image-container`
 2. Remove corresponding dots from `.gallery-dots`
 3. Update the navigation logic in `gallery-manager.js`
 
-## Replacing Placeholder Images
+### Video Support
 
-1. Replace the placeholder images in the `media/` folder
-2. Update the `src` attributes in `index.html` to point to your actual images
-3. Ensure images are properly sized (recommended: 1200x800px minimum)
+- Videos automatically loop, play without sound, and have no controls
+- Use `<video>` tags with `autoplay muted loop playsinline` attributes
+- Videos pause when not active and reset to beginning
+- Supported formats: MP4, WebM, OGV
+
+## Replacing Media Files
+
+### Image Naming Convention
+
+Images should follow this naming pattern:
+- `1.1.png`, `1.2.png`, `1.3.png`, `1.4.png`, `1.5.png` (Project 1)
+- `2.1.png`, `2.2.png`, `2.3.png`, `2.4.png`, `2.5.png` (Project 2)
+- And so on...
+
+### Adding Your Media
+
+1. **Images**: Upload PNG, JPG, or WebP files to the `media/` folder
+2. **Videos**: Upload MP4, WebM, or OGV files to the `media/` folder
+3. **Update HTML**: Change the `src` attributes in `index.html` to match your file names
+4. **Video Elements**: For videos, use `<video>` tags with `autoplay muted loop playsinline`
+
+### Recommended Specifications
+
+- **Images**: 1200x800px minimum, PNG or JPG format
+- **Videos**: 1200x800px minimum, MP4 format, optimized for web
 
 ## Responsive Breakpoints
 

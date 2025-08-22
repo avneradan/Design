@@ -34,13 +34,22 @@ function goToImage(projectId, imageIndex) {
   const project = document.querySelector(`[data-project="${projectId}"]`);
   if (!project) return;
   
-  // Update images
-  const images = project.querySelectorAll('.project-image');
-  images.forEach((img, index) => {
+  // Update media (images and videos)
+  const mediaElements = project.querySelectorAll('.project-media');
+  mediaElements.forEach((media, index) => {
     if (index + 1 === imageIndex) {
-      img.classList.add('active');
+      media.classList.add('active');
+      // If it's a video, play it
+      if (media.tagName === 'VIDEO') {
+        media.play();
+      }
     } else {
-      img.classList.remove('active');
+      media.classList.remove('active');
+      // If it's a video, pause it
+      if (media.tagName === 'VIDEO') {
+        media.pause();
+        media.currentTime = 0;
+      }
     }
   });
   
