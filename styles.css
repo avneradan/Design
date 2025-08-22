@@ -89,7 +89,7 @@ body {
 .image-container {
   position: relative;
   width: 100%;
-  max-width: 1024px; /* 20% smaller than 1280px (1280 * 0.8 = 1024) */
+  /*max-width: 1024px; /* 20% smaller than 1280px (1280 * 0.8 = 1024) */
   height: 0;
   padding-bottom: 62.5%; /* 16:10 aspect ratio (10/16 = 0.625) */
   background-color: #e0e0e0;
