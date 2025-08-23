@@ -49,35 +49,6 @@ body {
   z-index: 9999;
 }
 
-.custom-cursor-arrow {
-  position: absolute;
-  width: 96px; 
-  height: 96px; 
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 50%;
-  color: white;
-  font-size: 56px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  /*transition: all 0.3s ease;
-  */
-  z-index: 10001;
-  opacity: 0;
-  left: 0;
-  top: 0;
-}
-
-.custom-cursor-arrow-left {
-  left: 0;
-}
-
-.custom-cursor-arrow-right {
-  right: 0;
-}
-
 /* Hide cursor on mobile */
 @media (max-width: 768px) {
   .custom-cursor-container {
@@ -146,34 +117,26 @@ body {
 /* Projects Grid */
 .projects {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   row-gap: 96px;
   padding: 2rem;
-  /*
-  max-width: 1200px;
-  */
   width: 100%;
   margin: 0 auto;
 }
 
-/* 2 projects per row on screens 1280px and above */
-@media (min-width: 1280px) {
+/* 3 projects per row on all desktop screens */
+@media (max-width: 1279px) {
   .projects {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 1600px;
-    gap: 3rem;
-    row-gap: 96px;
+    gap: 1.5rem;
   }
 }
 
-/* 2 projects per row on screens bigger than 1440px */
-@media (min-width: 1441px) {
+@media (max-width: 767px) {
   .projects {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 1600px;
-    gap: 3rem;
-    row-gap: 96px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -181,30 +144,21 @@ body {
 .project {
   background: #f8f8f8;
   border-radius: 12px;
-  padding: 0;
-  background-color:transparent;
-  /*
+  padding: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  cursor: pointer;
 }
 
 .project:hover {
-  /*transform: translateY(-4px);
-  */
-  /*
+  transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  */
 }
 
-/* Project Header */
+/* Hide project headers - only show images */
 .project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: normal;
-  margin-bottom: 1.5rem;
-  min-height: 0;
+  display: none;
 }
 
 /* Project Title */
@@ -464,5 +418,180 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Project Drawer */
+.project-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  background: white;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.project-drawer.open {
+  right: 0;
+}
+
+/* Drawer Header - Fixed */
+.drawer-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 10001;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.drawer-header h2 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.drawer-header h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Drawer Close Button */
+.drawer-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.drawer-close:hover {
+  background-color: #f0f0f0;
+}
+
+/* Drawer Content - Scrollable */
+.drawer-content {
+  margin-top: 120px; /* Account for fixed header */
+  padding: 2rem;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* Drawer Image Container */
+.drawer-image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:10 aspect ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
+  margin-bottom: 2rem;
+}
+
+.drawer-image-container img,
+.drawer-image-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Drawer Navigation */
+.drawer-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.drawer-nav-button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.drawer-nav-button:hover {
+  background: #555;
+}
+
+.drawer-nav-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Drawer Dots */
+.drawer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.drawer-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drawer-dot.active {
+  background: #666;
+}
+
+.drawer-dot:hover {
+  background: #999;
+}
+
+/* Overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.drawer-overlay.visible {
+  opacity: 1;
+  visibility: visible;
 }
   
