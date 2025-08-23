@@ -121,8 +121,10 @@ The current color scheme uses:
 - **Desktop Only**: Custom cursor with navigation hints
 - **Left Half**: Cursor shows left arrow (←) for previous image
 - **Right Half**: Cursor shows right arrow (→) for next image
+- **Click Navigation**: Click left/right half of image to navigate
 - **Mobile**: Custom cursor automatically disabled, native cursor restored
 - **Visual Feedback**: Smooth cursor animations and navigation indicators
+- **Push Transitions**: Smooth slide animations when switching between images
 
 ## Contact
 

@@ -139,24 +139,51 @@ function goToImage(projectId, imageIndex) {
   const project = document.querySelector(`[data-project="${projectId}"]`);
   if (!project) return;
   
-  // Update media (images and videos)
-  const mediaElements = project.querySelectorAll('.project-media');
-  mediaElements.forEach((media, index) => {
-    if (index + 1 === imageIndex) {
-      media.classList.add('active');
-      // If it's a video, play it
-      if (media.tagName === 'VIDEO') {
-        media.play();
-      }
-    } else {
-      media.classList.remove('active');
-      // If it's a video, pause it
-      if (media.tagName === 'VIDEO') {
-        media.pause();
-        media.currentTime = 0;
-      }
-    }
-  });
+  // Get current active media
+  const currentActiveMedia = project.querySelector('.project-media.active');
+  const targetMedia = project.querySelectorAll('.project-media')[imageIndex - 1];
+  
+  if (!currentActiveMedia || !targetMedia) return;
+  
+  // Determine direction for animation
+  const currentIndex = Array.from(project.querySelectorAll('.project-media')).indexOf(currentActiveMedia);
+  const targetIndex = imageIndex - 1;
+  const direction = targetIndex > currentIndex ? 'right' : 'left';
+  
+  // Apply push transition animation
+  if (direction === 'right') {
+    // Sliding right (current image slides out to the right)
+    currentActiveMedia.classList.add('sliding-right');
+    
+    // New image enters from the right
+    targetMedia.classList.add('entering-right');
+    
+    // After animation, update classes
+    setTimeout(() => {
+      currentActiveMedia.classList.remove('active', 'sliding-right');
+      targetMedia.classList.remove('entering-right');
+      targetMedia.classList.add('active');
+      
+      // Update videos
+      updateVideoStates(project, targetMedia);
+    }, 400); // Match CSS transition duration
+  } else {
+    // Sliding left (current image slides out to the left)
+    currentActiveMedia.classList.add('sliding-left');
+    
+    // New image enters from the left
+    targetMedia.classList.add('entering-left');
+    
+    // After animation, update classes
+    setTimeout(() => {
+      currentActiveMedia.classList.remove('active', 'sliding-left');
+      targetMedia.classList.remove('entering-left');
+      targetMedia.classList.add('active');
+      
+      // Update videos
+      updateVideoStates(project, targetMedia);
+    }, 400); // Match CSS transition duration
+  }
   
   // Update dots
   const dots = project.querySelectorAll('.dot');
@@ -165,6 +192,22 @@ function goToImage(projectId, imageIndex) {
       dot.classList.add('active');
     } else {
       dot.classList.remove('active');
+    }
+  });
+}
+
+// Helper function to update video states
+function updateVideoStates(project, activeMedia) {
+  const allMedia = project.querySelectorAll('.project-media');
+  
+  allMedia.forEach((media) => {
+    if (media.tagName === 'VIDEO') {
+      if (media === activeMedia) {
+        media.play();
+      } else {
+        media.pause();
+        media.currentTime = 0;
+      }
     }
   });
 }

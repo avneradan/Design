@@ -51,12 +51,12 @@ body {
 
 .custom-cursor-arrow {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 180px; /* 3x bigger (60px * 3) */
+  height: 180px; /* 3x bigger (60px * 3) */
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
   color: white;
-  font-size: 24px;
+  font-size: 72px; /* 3x bigger (24px * 3) */
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -76,6 +76,18 @@ body {
 
 .custom-cursor-arrow-right {
   right: 0;
+}
+
+/* Hide idle cursor when arrows are visible */
+.custom-cursor-arrow[style*="opacity: 1"] ~ .custom-cursor,
+.custom-cursor-arrow[style*="opacity: 1"] ~ .custom-cursor-large {
+  opacity: 0;
+}
+
+/* Alternative method to hide idle cursor during hover */
+.image-container:hover .custom-cursor,
+.image-container:hover .custom-cursor-large {
+  opacity: 0;
 }
 
 /* Remove the hover effect since we're handling it with JavaScript */
@@ -206,11 +218,29 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(0);
 }
 
 .project-media.active {
   opacity: 1;
+  transform: translateX(0);
+}
+
+.project-media.sliding-left {
+  transform: translateX(-100%);
+}
+
+.project-media.sliding-right {
+  transform: translateX(100%);
+}
+
+.project-media.entering-left {
+  transform: translateX(100%);
+}
+
+.project-media.entering-right {
+  transform: translateX(-100%);
 }
 
 /* Video specific styles */

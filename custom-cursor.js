@@ -18,6 +18,7 @@ class CustomCursor {
     
     this.currentProjectId = null;
     this.hoveredImageContainer = null;
+    this.isHoveringImage = false;
     
     this.init();
   }
@@ -69,7 +70,9 @@ class CustomCursor {
       container.addEventListener('mouseenter', (e) => {
         this.hoveredImageContainer = container;
         this.currentProjectId = projectId;
+        this.isHoveringImage = true;
         this.updateCursorStyle(e);
+        this.hideIdleCursor();
       });
       
       container.addEventListener('mousemove', (e) => {
@@ -81,9 +84,42 @@ class CustomCursor {
       container.addEventListener('mouseleave', () => {
         this.hoveredImageContainer = null;
         this.currentProjectId = null;
+        this.isHoveringImage = false;
         this.resetCursorStyle();
+        this.showIdleCursor();
+      });
+      
+      // Add click events for navigation
+      container.addEventListener('click', (e) => {
+        this.handleImageClick(e, projectId);
       });
     });
+  }
+  
+  handleImageClick(e, projectId) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const clickX = e.clientX;
+    
+    if (clickX < centerX) {
+      // Clicked left half - go to previous image
+      this.navigateToPrevious(projectId);
+    } else {
+      // Clicked right half - go to next image
+      this.navigateToNext(projectId);
+    }
+  }
+  
+  navigateToPrevious(projectId) {
+    if (typeof previousImage === 'function') {
+      previousImage(parseInt(projectId));
+    }
+  }
+  
+  navigateToNext(projectId) {
+    if (typeof nextImage === 'function') {
+      nextImage(parseInt(projectId));
+    }
   }
   
   updateCursorStyle(e) {
@@ -122,6 +158,16 @@ class CustomCursor {
       this.cursorArrowLeft.style.opacity = '0';
       this.cursorArrowRight.style.opacity = '0';
     }
+  }
+  
+  hideIdleCursor() {
+    if (this.cursor) this.cursor.style.opacity = '0';
+    if (this.cursorLarge) this.cursorLarge.style.opacity = '0';
+  }
+  
+  showIdleCursor() {
+    if (this.cursor) this.cursor.style.opacity = '1';
+    if (this.cursorLarge) this.cursorLarge.style.opacity = '1';
   }
   
   show() {
