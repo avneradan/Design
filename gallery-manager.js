@@ -9,6 +9,7 @@ const dragStates = {};
 
 // Initialize all projects
 function initializeProjects() {
+  // Initialize project states and drag states
   for (let i = 1; i <= 12; i++) {
     projectStates[i] = 1; // Start with first image
     dragStates[i] = {
@@ -21,8 +22,11 @@ function initializeProjects() {
     };
   }
   
-  // Add drag event listeners to all projects
+  // Set up drag listeners for each project
   setupDragListeners();
+  
+  // Set up dot click listeners
+  setupDotListeners();
 }
 
 // Setup drag event listeners for all projects
@@ -47,6 +51,22 @@ function setupDragListeners() {
     
     // Prevent default touch behavior to avoid scrolling
     imageContainer.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+  });
+}
+
+// Set up dot click listeners
+function setupDotListeners() {
+  const projects = document.querySelectorAll('.project');
+  
+  projects.forEach(project => {
+    const projectId = parseInt(project.getAttribute('data-project'));
+    const dots = project.querySelectorAll('.dot');
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToImage(projectId, index + 1);
+      });
+    });
   });
 }
 
