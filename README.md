@@ -117,6 +117,13 @@ The current color scheme uses:
 - **Threshold**: Minimum 50px drag distance required to trigger slide
 - **Direction**: Horizontal drag takes priority over vertical drag
 
+### Custom Cursor Navigation
+- **Desktop Only**: Custom cursor with navigation hints
+- **Left Half**: Cursor shows left arrow (←) for previous image
+- **Right Half**: Cursor shows right arrow (→) for next image
+- **Mobile**: Custom cursor automatically disabled, native cursor restored
+- **Visual Feedback**: Smooth cursor animations and navigation indicators
+
 ## Contact
 
 The email button automatically copies the email address to the clipboard when clicked.
