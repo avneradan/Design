@@ -92,14 +92,15 @@ body {
 /* Header Styles */
 .header {
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 80px auto;
   max-width: 1200px;
+  height: 80VH;
   margin: 0 auto;
 }
 
 .name {
-  font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
   line-height: 1.2;
