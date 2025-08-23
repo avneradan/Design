@@ -78,23 +78,6 @@ body {
   right: 0;
 }
 
-/* Hide idle cursor when arrows are visible */
-.custom-cursor-arrow[style*="opacity: 1"] ~ .custom-cursor,
-.custom-cursor-arrow[style*="opacity: 1"] ~ .custom-cursor-large {
-  opacity: 0;
-}
-
-/* Alternative method to hide idle cursor during hover */
-.image-container:hover .custom-cursor,
-.image-container:hover .custom-cursor-large {
-  opacity: 0;
-}
-
-/* Remove the hover effect since we're handling it with JavaScript */
-.image-container:hover .custom-cursor-arrow {
-  opacity: 0;
-}
-
 /* Hide cursor on mobile */
 @media (max-width: 768px) {
   .custom-cursor-container {
@@ -169,6 +152,15 @@ body {
   margin: 0 auto;
 }
 
+/* 2 projects per row on screens 1280px and above */
+@media (min-width: 1280px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1600px;
+    gap: 3rem;
+  }
+}
+
 /* 2 projects per row on screens bigger than 1440px */
 @media (min-width: 1441px) {
   .projects {
@@ -182,19 +174,15 @@ body {
 .project {
   background: #f8f8f8;
   border-radius: 12px;
-  /*
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .project:hover {
   transform: translateY(-4px);
- /*
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  */
 }
 
 /* Project Header */
@@ -347,20 +335,6 @@ body {
     max-width: 1600px;
     padding: 0 40px 120px;
   }
-  
-  .nav-arrow {
-    width: 56px;
-    height: 56px;
-    font-size: 24px;
-  }
-  
-  .nav-arrow.prev {
-    left: -28px;
-  }
-  
-  .nav-arrow.next {
-    right: -28px;
-  }
 }
 
 /* 1440px */
@@ -379,7 +353,7 @@ body {
   }
   
   .projects {
-    max-width: 1200px;
+    max-width: 1600px;
     padding: 0 30px 80px;
   }
 }
@@ -400,22 +374,8 @@ body {
   }
   
   .projects {
-    max-width: 900px;
+    max-width: 1200px;
     padding: 0 24px 60px;
-  }
-  
-  .nav-arrow {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-  }
-  
-  .nav-arrow.prev {
-    left: -22px;
-  }
-  
-  .nav-arrow.next {
-    right: -28px;
   }
 }
 
