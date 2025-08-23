@@ -92,7 +92,7 @@ body {
 /* Header Styles */
 .header {
   text-align: center;
-  padding: 80px auto;
+  padding: 80px 20px 60px;
   max-width: 1200px;
   height: 80VH;
   margin: 0 auto;
@@ -148,8 +148,12 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
+  row-gap: 96px;
   padding: 2rem;
+  /*
   max-width: 1200px;
+  */
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -159,6 +163,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1600px;
     gap: 3rem;
+    row-gap: 96px;
   }
 }
 
@@ -168,6 +173,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1600px;
     gap: 3rem;
+    row-gap: 96px;
   }
 }
 
@@ -416,7 +422,7 @@ body {
   }
   
   .project {
-    margin-bottom: 60px;
+    margin-bottom: 120px;
   }
   
   .image-container {
