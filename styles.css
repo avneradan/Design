@@ -51,19 +51,19 @@ body {
 
 .custom-cursor-arrow {
   position: absolute;
-  width: 180px; /* 3x bigger (60px * 3) */
-  height: 180px; /* 3x bigger (60px * 3) */
+  width: 96px; 
+  height: 96px; 
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
   color: white;
-  font-size: 72px; /* 3x bigger (24px * 3) */
-  font-weight: bold;
+  font-size: 56px; 
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
+  /*transition: all 0.3s ease;
+  */
   z-index: 10001;
   opacity: 0;
   left: 0;
@@ -174,45 +174,52 @@ body {
 .project {
   background: #f8f8f8;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 0;
+  background-color:transparent;
+  /*
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .project:hover {
-  transform: translateY(-4px);
+  /*transform: translateY(-4px);
+  */
+  /*
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  */
 }
 
 /* Project Header */
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: normal;
   margin-bottom: 1.5rem;
-  min-height: 3rem;
+  min-height: 0;
 }
 
 /* Project Title */
 .project h2 {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 2.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
   color: #333;
   margin: 0;
   text-align: left;
-  line-height: 1;
+  line-height: 0.5;
 }
 
 /* Project Subtitle */
 .project h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
   margin: 0;
   text-align: right;
+  margin-top: 0.1rem;
   line-height: 1;
 }
 
@@ -290,6 +297,7 @@ body {
 }
 
 /* Gallery Dots */
+/*
 .gallery-dots {
   display: flex;
   justify-content: center;
@@ -313,7 +321,7 @@ body {
 .dot:hover {
   background: #999;
 }
-
+*/
 /* Responsive Breakpoints */
 
 /* 1920px and above */
